@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <Title msg='AGREGA UN NUEVO JUGADOR' />
-        <form>
+        <form @submit.prevent="createUserAction({nombre:nombre, apellido:apellido, edad:edad, email:email, phone:phone})">
             <label for="">Nombre</label>
             <input 
             type="text" 
@@ -40,8 +40,10 @@
             required>
 
             <div class="btns">
-                    <button class="btn add">Agregar</button>
-                    <button class="btn cancel">Cancelar</button>
+                    <button type="submit" class="btn add">Agregar</button>
+                    <router-link to="/users">
+                        <button class="btn cancel">Cancelar</button>
+                    </router-link>
             </div>
         </form>
     </div>
@@ -68,7 +70,7 @@ export default {
     },
 
     methods: {
-
+        ...mapActions(['createUserAction','updateUserActionCancel'])
     }
 }
 </script>

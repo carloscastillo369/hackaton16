@@ -21,17 +21,12 @@
                     <td>{{user.email}}</td>
                     <td>{{user.phone}}</td>
                     <td class="action">
-                        <router-link :to="{name: 'Edit', params: {id: user.id}}">
+                        <router-link 
+                            :to="{name: 'Edit', params: {id: user.id}}"
+                        >
                             <button class="btn edit">Mostrar</button>
                         </router-link>
-                        <router-link to="/users">
-                            <button
-                                @click="deleteUserAction(user.id)" 
-                                class="btn delete"
-                            >
-                                Borrar
-                            </button>
-                        </router-link>
+                        <button @click="deleteUserAction(user.id)" class="btn delete">Borrar</button>
                     </td>
                 </tr>
             </tbody>
@@ -43,7 +38,7 @@
 import { mapActions, mapState} from "vuex";
 
 export default {
-    name: 'Table',
+    name: 'TableUser',
     data() {
         return {
             id: this.$route.params.id

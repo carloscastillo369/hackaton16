@@ -1,24 +1,24 @@
 <template>
     <div class="container">
-        <form>
+        <form @submit.prevent="updateUserAction({id: user.id, nombre:user.nombre, apellido:user.apellido, edad:user.edad, email:user.email, phone:user.phone})">
             <label for="">Nombre</label>
-            <input type="text" placeholder="Nombre" :value="user.nombre">
+            <input type="text" placeholder="Nombre" v-model="user.nombre">
 
             <label for="">Apellido</label>
-            <input type="text" placeholder="Apellido" :value="user.apellido">
+            <input type="text" placeholder="Apellido" v-model="user.apellido">
 
             <label for="">Edad</label>
-            <input type="number" placeholder="Edad" :value="user.edad">
+            <input type="number" placeholder="Edad" v-model="user.edad">
 
             <label for="">Email</label>
-            <input type="email" placeholder="Email" :value="user.email">
+            <input type="email" placeholder="Email" v-model="user.email">
 
             <label for="">Teléfono</label>
-            <input type="number" placeholder="Teléfono" :value="user.phone">
+            <input type="number" placeholder="Teléfono" v-model="user.phone">
 
             <div class="btns">
-                <button class="btn update">Actualizar</button>
-                <router-link :to="`/users/user/${user.id}`">
+                <button type="submit" class="btn update">Actualizar</button>
+                <router-link to="/users">
                     <button class="btn cancel">Cancelar</button>
                 </router-link>
             </div>
@@ -30,14 +30,19 @@
 import { mapActions, mapState} from "vuex";
 
 export default {
-    name: 'Formulario',
+    name: 'FormEdit',
     data() {
         return {
-            id: this.$route.params.id
+            id: this.$route.params.id,
+            nombre: '',
+            apellido: '',
+            edad: 0,
+            email: '',
+            phone: 0
         }
     },
     methods: {
-        ...mapActions(['getUserAction'])
+        ...mapActions(['getUserAction','updateUserAction'])
     },
     computed: {
         ...mapState(['user'])

@@ -1,28 +1,44 @@
 {
   "users": [
     {
-      "id": 1,
-      "nombre": "Paolo",
-      "apellido": "Guerrero",
-      "edad": 35,
-      "email": "paologuerrero@peru.com",
-      "phone": "993387211"
-    },
-    {
       "id": 2,
       "nombre": "Jefferson",
       "apellido": "Farfan",
-      "edad": 34,
+      "edad": "31",
       "email": "jeffersonfarfan@peru.com",
       "phone": "924354377"
     },
     {
       "id": 3,
-      "nombre": "Aldo",
-      "apellido": "Corso",
-      "edad": 30,
-      "email": "aldocorso@peru.com",
-      "phone": "972898553"
+      "nombre": "Edison",
+      "apellido": "Flores",
+      "edad": "28",
+      "email": "edisonflores@peru.com",
+      "phone": "972338553"
+    },
+    {
+      "id": 4,
+      "nombre": "Paolo",
+      "apellido": "Guerrero",
+      "edad": "37",
+      "email": "paologuerrero@peru.com",
+      "phone": 9997776535
+    },
+    {
+      "nombre": "Andre",
+      "apellido": "Carrillo",
+      "edad": 29,
+      "email": "andrecarrillo@peru.com",
+      "phone": 998833672,
+      "id": 5
+    },
+    {
+      "nombre": "Miguel",
+      "apellido": "Araujo",
+      "edad": 27,
+      "email": "miguelaraujo@peru.com",
+      "phone": 998384752,
+      "id": 6
     }
   ]
 }

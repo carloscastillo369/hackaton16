@@ -7,7 +7,7 @@
 
 <script>
 import Title from "@/components/Title.vue";
-import Table from "@/components/Table.vue";
+import Table from "@/components/TableUser.vue";
 
 export default {
     name: 'User',

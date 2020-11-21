@@ -7,7 +7,7 @@
 
 <script>
 import Title from "@/components/Title.vue";
-import Formulario from "@/components/Formulario.vue";
+import Formulario from "@/components/FormEdit.vue";
 
 export default {
     name: 'Edit',

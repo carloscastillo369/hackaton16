@@ -1,41 +1,87 @@
 import { createStore } from 'vuex'
+import router from './../router';
 
 export default createStore({
   state: {
     users: [],
     user: {}
   },
-
   mutations: {
-    getUsersMutation(state, payload){
+    getUsersMutation(state, payload) {
       state.users = payload;
     },
 
-    getUserMutation(state, payload){
+    deleteUserMutation(state, payload) {
+      state.users = state.users.filter(user => user.id !== payload);
+    },
+
+    getUserMutation(state, payload) {
       state.user = payload;
     }
   },
-
   actions: {
-    async getUsersAction({commit}){
-      const info = await fetch('http://localhost:3000/users');
-      let users = await info.json();
-      commit('getUsersMutation', users);
+    getUsersAction({commit}) {
+      fetch('http://localhost:3000/users', {
+        method: 'GET'
+      })
+        .then(res => {
+          return res.json();
+      })
+        .then(data => {
+          console.log(data)
+          commit('getUsersMutation', data);
+      })
     },
 
-    async getUserAction({commit}, id){
-      const info = await fetch(`http://localhost:3000/users/${id}`);
-      let user = await info.json();
-      commit('getUserMutation', user);
+    createUserAction({commit}, user) {
+      fetch('http://localhost:3000/users', 
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+          .then(res => {
+            router.push('/users');
+          })
     },
-
-    async deleteUserAction({commit},id){
-      const info = await fetch(`http://localhost:3000/users/${id}`,{
+    deleteUserAction({commit}, id) {
+      fetch(`http://localhost:3000/users/${id}`, {
         method: 'DELETE'
       })
+        .then(res => {
+          commit('deleteUserMutation', id);
+      })
+    },
+    getUserAction({commit}, id) {
+      fetch(`http://localhost:3000/users/${id}`, {
+        method: 'GET'
+      })
+        .then(res => {
+          return res.json();
+      })
+        .then(data => {
+          console.log(data)
+          commit('getUserMutation', data);
+      })
+    },
+
+    updateUserAction({commit}, user) {
+      
+      fetch(`http://localhost:3000/users/${user.id}`, 
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+        .then(res => {
+          router.push('/users');
+        })
     }
   },
-
   modules: {
   }
 })
