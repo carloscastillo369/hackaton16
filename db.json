@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nombre": "Paolo",
+      "apellido": "Guerrero",
+      "edad": 35,
+      "email": "paologuerrero@peru.com",
+      "phone": "993387211"
+    },
+    {
+      "id": 2,
+      "nombre": "Jefferson",
+      "apellido": "Farfan",
+      "edad": 34,
+      "email": "jeffersonfarfan@peru.com",
+      "phone": "924354377"
+    },
+    {
+      "id": 3,
+      "nombre": "Aldo",
+      "apellido": "Corso",
+      "edad": 30,
+      "email": "aldocorso@peru.com",
+      "phone": "972898553"
+    }
+  ]
+}

@@ -1,13 +1,16 @@
 <template>
   <div>
+    <ListUsers/>
   </div>
 </template>
 
 <script>
+import ListUsers from "@/components/ListUsers.vue";
 
 export default {
-  name: 'Home',
+  name: 'Users',
   components: {
+    ListUsers
   }
 }
 </script>
